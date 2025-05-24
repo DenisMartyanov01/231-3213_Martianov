@@ -1,0 +1,38 @@
+@hostname = http://localhost:18080/api
+
+GET {{hostname}}/teacher.get
+Content-Type: application/json
+
+### get id
+GET {{hostname}}/teacher.get/1003
+Content-Type: application/json
+
+### create
+POST {{hostname}}/teacher.create/
+Content-Type: application/json
+
+{
+    "name": "Иван",
+    "phone": "777.777.777",
+    "lesson_name": "Информатика",
+    "last_lesson": "2025-04-01",
+    "years_of_teaching": 9,
+    "is_working": 1
+}
+
+### delete
+GET {{hostname}}/teacher.delete/2004
+Content-Type: application/json
+
+### update
+POST {{hostname}}/teacher.update/1003
+Content-Type: application/json
+
+{
+    "name": "Владимир",
+    "phone": "888.888.888",
+    "lesson_name": "Физкультура",
+    "last_lesson": "2025-03-02",
+    "years_of_teaching": 3,
+    "is_working": true
+}
