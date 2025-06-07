@@ -1,4 +1,4 @@
-@hostname = http://0.0.0.0:8000/api/
+@hostname = http://127.0.0.1:7000/api
 
 ### запрос на Retrieve C(R)UD
 GET {{hostname}}/teacher.get

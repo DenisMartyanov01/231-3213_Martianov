@@ -1,10 +1,10 @@
-@hostname = http://localhost:18080/api
+@hostname = http://localhost:7000/api
 
 GET {{hostname}}/teacher.get
 Content-Type: application/json
 
 ### get id
-GET {{hostname}}/teacher.get/1003
+GET {{hostname}}/teacher.get/21
 Content-Type: application/json
 
 ### create
@@ -21,11 +21,11 @@ Content-Type: application/json
 }
 
 ### delete
-GET {{hostname}}/teacher.delete/2004
+GET {{hostname}}/teacher.delete/20
 Content-Type: application/json
 
 ### update
-POST {{hostname}}/teacher.update/1003
+POST {{hostname}}/teacher.update/5
 Content-Type: application/json
 
 {

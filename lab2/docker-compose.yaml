@@ -13,7 +13,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck:  # Добавил healthcheck
+    healthcheck: 
       test: ["CMD-SHELL", "pg_isready -U django -d lab1_db"]
       interval: 5s
       timeout: 5s
@@ -39,7 +39,7 @@ services:
     command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput"
     depends_on:
       postgres:
-        condition: service_healthy  # Ждем готовности БД
+        condition: service_healthy
     volumes:
       - ./backend:/backend
 
@@ -47,11 +47,12 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: gunicorn lab1.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn lab1.wsgi:application --bind 0.0.0.0:7000
+    
     ports: 
-      - "8000:8000"
+      - "7000:7000"
     depends_on:
-      - migration-service  # Зависимость от миграций
+      - migration-service 
     volumes:
       - ./backend:/backend
       - static_volume:/backend/static

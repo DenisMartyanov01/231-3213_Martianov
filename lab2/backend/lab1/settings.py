@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-fnh($7^jd3!%)zp=0ojy8c0e@vaz=_l25^$+a7%iwe^pez)dxe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]  # временно для теста (или укажите конкретные хосты)
+CSRF_TRUSTED_ORIGINS = ["http://localhost", "http://127.0.0.1"]
+SECURE_SSL_REDIRECT = False  # временно отключите HTTPS-редирект
+
+SESSION_COOKIE_SECURE = False  # Разрешает куки по HTTP
+CSRF_COOKIE_SECURE = False  # Разрешает CSRF-токены по HTTP
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = BASE_DIR / 'static'
